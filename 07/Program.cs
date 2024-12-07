@@ -66,7 +66,8 @@ void Part1(bool print = false)
                 while (toCalc.Count > 0)
                 {
                     ulong currSum = toCalc.Dequeue();
-                    string currPrint = toPrint.Dequeue();
+                    string currPrint = string.Empty;
+                    if (print) currPrint = toPrint.Dequeue();
 
                     tempCalc.Enqueue(currSum + currNum);
                     tempCalc.Enqueue(currSum * currNum);
