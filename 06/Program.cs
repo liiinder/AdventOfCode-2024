@@ -88,14 +88,14 @@ void StartPart2Loop(Pos extrawall)
 
         if (walls.Contains(next) || next == extrawall)
         {
+            if (!beenTo.Add((next, dir)))
+            {
+                loops.Add(extrawall);
+                break;
+            }
+
             dir = SwapDirection(dir);
             continue;
-        }
-
-        if (!beenTo.Add((next, dir)))
-        {
-            loops.Add(extrawall);
-            break;
         }
 
         player = next;
